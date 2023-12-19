@@ -28,18 +28,11 @@ spec:
     spec:
       containers:
       - name: app
-        image: quay.io/drsylent/cubix/block6/homework:springboot3
+        image: quay.io/drsylent/cubix/block6/homework:springboot3native
         imagePullPolicy: Always
         envFrom:
         - secretRef:
             name: hw6secret
-        env:
-        - name: BPL_JVM_THREAD_COUNT
-          value: "100"
-        - name: BPL_JAVA_NMT_ENABLED
-          value: "false"
-        - name: SERVER_TOMCAT_THREADS_MAX
-          value: "50"
         ports:
         - containerPort: 8080
           name: web
@@ -49,9 +42,7 @@ spec:
           httpGet:
             path: /actuator/health/liveness
             port: management
-          initialDelaySeconds: 5
-          periodSeconds: 10
-          failureThreshold: 5
+          failureThreshold: 20
         livenessProbe:
           httpGet:
             path: /actuator/health/liveness
@@ -64,10 +55,10 @@ spec:
         resources:
           limits:
             cpu: 500m
-            memory: 512Mi
+            memory: 100Mi
           requests:
             cpu: 50m
-            memory: 512Mi
+            memory: 100Mi
 ---
 apiVersion: v1
 kind: Service
