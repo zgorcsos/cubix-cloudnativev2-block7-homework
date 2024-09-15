@@ -1,30 +1,30 @@
 apiVersion: v1
 kind: Secret
 metadata:
-  name: hw6secret
+  name: cnsecret
   labels:
-    training: block6
+    training: cn2
 stringData:
   apikey: "c7e9de1e93637eb6157e3ab03698169e0fe392b17204dc42c12c2c55aa607819"
 ---
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: sixth
+  name: appb
   labels:
-    app: sixth
-    training: block6
+    app: appb
+    training: cn2
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: sixth
-      training: block6
+      app: appb
+      training: cn2
   template:
     metadata:
       labels:
-        app: sixth
-        training: block6
+        app: appb
+        training: cn2
     spec:
       containers:
       - name: app
@@ -32,26 +32,12 @@ spec:
         imagePullPolicy: Always
         envFrom:
         - secretRef:
-            name: hw6secret
+            name: cnsecret
         ports:
         - containerPort: 8080
           name: web
         - containerPort: 8081
           name: management
-        startupProbe:
-          httpGet:
-            path: /actuator/health/liveness
-            port: management
-          failureThreshold: 20
-        livenessProbe:
-          httpGet:
-            path: /actuator/health/liveness
-            port: management
-          failureThreshold: 3
-        readinessProbe:
-          httpGet:
-            path: /actuator/health/readiness
-            port: management
         resources:
           limits:
             cpu: 500m
@@ -63,14 +49,14 @@ spec:
 apiVersion: v1
 kind: Service
 metadata:
-  name: sixth
+  name: appb
   labels:
-    app: sixth
-    training: block6
+    app: appb
+    training: cn2
 spec:
   selector:
-    app: sixth
-    training: block6
+    app: appb
+    training: cn2
   ports:
     - name: web
       port: 8080

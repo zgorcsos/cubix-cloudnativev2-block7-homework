@@ -1,0 +1,38 @@
+{
+  "info": {
+    "name": "Cloud-native requirements Homework - both applications",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "Call both applications",
+      "event": [],
+      "request": {
+        "method": "GET",
+        "header": [],
+        "description": "",
+        "url": {
+          "raw": "http://other.cubix.localhost:8080/sixth?name=InsertYourNameHere",
+          "host": [
+            "other",
+            "cubix",
+            "localhost"
+          ],
+          "path": [],
+          "query": [
+            {
+              "key": "name",
+              "value": "InsertYourNameHere"
+            }
+          ],
+          "variable": []
+        }
+      }
+    },
+    {
+      "name": "bruno",
+      "event": []
+    }
+  ],
+  "variable": []
+}

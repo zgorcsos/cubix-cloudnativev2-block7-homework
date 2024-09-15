@@ -1,2 +1,3 @@
-# cubix-cloudnative-block6-homework
-Cubix Cloud-Native Application Development Training: sixth homework
+# Cloud-native requirements homework 2.
+
+Cubix Cloud-Native Application Development Training: second cloud-native requirements homework
