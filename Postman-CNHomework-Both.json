@@ -12,7 +12,7 @@
         "header": [],
         "description": "",
         "url": {
-          "raw": "http://other.cubix.localhost:8080/sixth?name=InsertYourNameHere",
+          "raw": "http://other.cubix.localhost:8080/call/b?name=InsertYourNameHere",
           "host": [
             "other",
             "cubix",
