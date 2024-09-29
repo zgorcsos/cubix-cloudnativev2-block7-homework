@@ -28,7 +28,7 @@ spec:
     spec:
       containers:
       - name: app
-        image: quay.io/drsylent/cubix/block6/homework:springboot3native
+        image: quay.io/drsylent/cubix/block7v2/homework:springboot3native
         imagePullPolicy: Always
         envFrom:
         - secretRef:
