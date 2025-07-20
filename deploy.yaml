@@ -30,9 +30,18 @@ spec:
       - name: app
         image: quay.io/drsylent/cubix/block7v2/homework:springboot3native
         imagePullPolicy: Always
-        envFrom:
+        envFrom:        
         - secretRef:
             name: cnsecret
+        env:
+        - name: OTEL_SERVICE_NAME
+          value: appb-spring-cubix-cn
+        - name: OTEL_EXPORTER_OTLP_ENDPOINT
+          value: http://tempo.tempo.svc:4318
+        - name: OTEL_EXPORTER_OTLP_PROTOCOL
+          value: http/protobuf
+        - name: OTEL_METRICS_EXPORTER
+          value: none
         ports:
         - containerPort: 8080
           name: web
