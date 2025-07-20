@@ -61,3 +61,20 @@ spec:
     - name: web
       port: 8080
       targetPort: web
+---
+apiVersion: monitoring.coreos.com/v1
+kind: PodMonitor
+metadata:
+  name: appb
+  labels:
+    app: appb
+    training: cn2
+    release: prometheus-operator
+spec:
+  podMetricsEndpoints:
+    - port: management
+      path: /actuator/prometheus
+  selector:
+    matchLabels:
+      app: appb
+      training: cn2
